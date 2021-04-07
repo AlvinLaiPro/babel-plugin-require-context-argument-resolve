@@ -1,6 +1,6 @@
 const path = require('path');
 const ResolvePathByString = (str, filename) => {
-    if (str.startsWith('.') || str.startsWith('/')) {
+    if (str.startsWith('.') || str.startsWith(path.sep)) {
         return str;
     }
 
