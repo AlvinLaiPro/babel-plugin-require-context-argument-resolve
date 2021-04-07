@@ -20,7 +20,7 @@ const ResolvePathByString = (str, filename) => {
                 const depKey = Object.keys(deps).find((key) => str.startsWith(key));
 
                 if (depKey) {
-                    const depPath = require.resolve(depKey);
+                    const depPath = require.resolve(depKey, {paths: [process.cwd()]});
                     const directories = path.dirname(depPath).split(path.sep);
                     const endPoints = str.replace(`${depKey}${path.sep}`, '').split(path.sep);
                     const firstEndPoint = endPoints[0];
